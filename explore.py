@@ -39,16 +39,28 @@ def sample_parameters():
             theta = random.uniform(0, 2 * np.pi)
             inside_point = (-1 + 0j) + r * np.exp(1j * theta)
 
+    # Apply log scaling to the parameters
+
+    max_steps = int(10 ** random.uniform(0, 2))
+
+    #samples = 10 ** random.randint(2, 4)  # Sample size range
+    #max_iter = 10 ** random.randint(2, 4)  # Max iteration range
+
+    samples = int(10 ** random.uniform(2, 4))  # Sample size range
+    max_iter = int(10 ** random.uniform(2, 4))  # Max iteration range
+
     params = {
-        'samples': random.randint(100, 20000),  # Sample size range
-        'max_iter': random.randint(500, 10000),   # Max iteration range
-        'max_steps': random.randint(2, 50),       # Max steps for each point
+        'samples': samples, # Number of orbits to draw onto the image
+        'max_iter': max_iter, # Number of steps before an orbit is considered to have escaped
+        'max_steps': max_steps, # Number of refinement steps for the orbit, the higher, the closer the sampled point is to the border of the mandelbrot set
+        #and the longer it takes to escape.
         'cmap': random.choice(['hot', 'viridis', 'plasma', 'inferno', 'magma', 'cividis']),  # Color maps
         'inside_point': inside_point,            # Inside point for the BuddhaBrot
         'outside_point': None                    # Outside point can be None for now
     }
     return params
 
+# Generate BuddhaBrot images with sampled parameters
 # Generate BuddhaBrot images with sampled parameters
 for i in tqdm(range(n_samples), desc="Generating BuddhaBrot samples"):
     params = sample_parameters()  # Randomly sample new parameters for each image
@@ -61,7 +73,7 @@ for i in tqdm(range(n_samples), desc="Generating BuddhaBrot samples"):
     with tqdm(total=samples, desc=f"Generating BuddhaBrot Image {i+1}", unit="samples") as pbar:
         # Generate BuddhaBrot with sampled parameters
         buddhabrot_image = generate_buddhabrot(width, height, samples, max_iter, max_steps, pbar, inside_point=inside_point, outside_point=None)
-    
+
     # Rotate the image to keep visual consistency
     buddhabrot_image_flipped = np.rot90(buddhabrot_image, k=-1)
 
@@ -69,9 +81,13 @@ for i in tqdm(range(n_samples), desc="Generating BuddhaBrot samples"):
     colored_image = apply_colormap(buddhabrot_image_flipped, cmap_name=cmap)
     img = Image.fromarray(colored_image)
 
-    # Save the image
-    image_filename = os.path.join(output_dir, f'buddhabrot_sample_{i+1:03d}.png')
+    # Save the image with configuration parameters in the filename
+    if inside_point is not None:
+        inside_point_str = f"_inside_{inside_point.real}_{inside_point.imag}"
+    else:
+        inside_point_str = "_inside_None"
+    image_filename = os.path.join(output_dir, f'buddhabrot_sample_{i+1:03d}_samples_{samples}_iter_{max_iter}_steps_{max_steps}{inside_point_str}.png')
     img.save(image_filename)
 
-print(f"{n_samples} images saved in '{output_dir}'")
 
+print(f"{n_samples} images saved in '{output_dir}'")

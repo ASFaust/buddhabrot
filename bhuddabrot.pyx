@@ -61,16 +61,26 @@ cdef inline void binary_step(double complex c_in, double complex c_out, int max_
 @cython.wraparound(False)
 def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar, 
                         inside_point=None, outside_point=None):
-    """
-    Generate a BuddhaBrot image by sampling orbits near the boundary of the Mandelbrot set.
-    Use binary stepping to get interesting orbits and capture the full orbit.
+    def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar,
+                            inside_point=None, outside_point=None):
+        """
+        Generate a BuddhaBrot image by sampling orbits near the boundary of the Mandelbrot set.
+        Use binary stepping to get interesting orbits and capture the full orbit.
 
-    Optional:
-        inside_point: A user-provided Python complex number that serves as the initial inside point.
-                      If not provided, the function samples points from the main cardioid or the secondary bulb.
-        outside_point: A user-provided Python complex number that serves as the initial outside point.
-                       If not provided, the function samples points outside the Mandelbrot set.
-    """
+        Parameters:
+        width (int): The width of the output image.
+        height (int): The height of the output image.
+        samples (int): The number of orbits to draw onto the image.
+        max_iter (int): The number of steps before an orbit is considered to have escaped.
+        max_steps (int): The number of refinement steps for the orbit. The higher, the closer the sampled point is to the border of the Mandelbrot set and the longer it takes to escape.
+        pbar (tqdm): A tqdm progress bar object to display the progress of the image generation.
+        inside_point (complex, optional): A user-provided Python complex number that serves as the initial inside point. If not provided, the function samples points from the main cardioid or the secondary bulb.
+        outside_point (complex, optional): A user-provided Python complex number that serves as the initial outside point. If not provided, the function samples points outside the Mandelbrot set on a circle centered at 0 of radius 3.
+
+        Returns:
+        numpy.ndarray: A 2D numpy array representing the generated BuddhaBrot image.
+        """
+        # Rest of the function code...
     cdef cnp.ndarray[cnp.float64_t, ndim=2] buddhabrot_image = np.zeros((height, width), dtype=np.float64)  # NumPy array for image
 
     cdef int count, orbit_len, i, j  # Declare all integer variables as C types
