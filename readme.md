@@ -44,6 +44,16 @@ with tqdm(total=samples, desc="Generating BuddhaBrot", unit="samples") as pbar:
     buddhabrot_image = generate_buddhabrot(width, height, samples, max_iter, max_steps, pbar, inside_point = 0.01+0.01j, outside_point = None)
 ```
 
+## Binary Stepping
+
+The `generate_buddhabrot` function uses a technique called binary stepping to find a point close to the boundary of the Mandelbrot set. This technique is similar to binary search, where the search space is halved at each step.
+
+In the context of generating the BuddhaBrot, binary stepping starts with two points: an `inside_point` that is known to be inside the Mandelbrot set, and an `outside_point` that is known to be outside the Mandelbrot set. The function then calculates the midpoint between these two points and checks whether this midpoint is inside or outside the Mandelbrot set. If the midpoint is inside, it becomes the new `inside_point`. If it's outside, it becomes the new `outside_point`. This process is repeated for a specified number of steps (`max_steps`), effectively narrowing down the search space to find a point that is very close to the boundary of the Mandelbrot set.
+
+## Return Type of `generate_buddhabrot`
+
+The `generate_buddhabrot` function returns a 2D numpy array representing the generated BuddhaBrot image. Each element in the array corresponds to a pixel in the image, and its value represents the intensity of that pixel. The intensity is determined by the number of orbits that pass through the corresponding point in the complex plane. The returned array can be used to visualize the BuddhaBrot image using various colormaps.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
