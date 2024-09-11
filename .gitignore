@@ -1,0 +1,26 @@
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Ignore virtual environment (if you're using one)
+venv/
+.env/
+
+# Ignore output directories
+buddhabrot_frames_high_quality/
+buddhabrot_exploration_frames/
+buddhabrot_exploration_images/
+
+# Ignore log files and system-specific files
+*.log
+.DS_Store
+
+# Ignore image files
+*.png
+*.jpg
+*.jpeg
+
+# Ignore video files
+*.mp4
+
