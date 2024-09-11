@@ -24,3 +24,5 @@ buddhabrot_exploration_images/
 # Ignore video files
 *.mp4
 
+# Inlcude title
+!title.png
