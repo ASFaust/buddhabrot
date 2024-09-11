@@ -30,3 +30,6 @@ buddhabrot_exploration_images/
 # Ignore Python build files
 build/
 *.so
+
+*.idea/
+.idea/
