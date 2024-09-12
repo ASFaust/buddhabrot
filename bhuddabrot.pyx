@@ -139,5 +139,5 @@ def generate_buddhabrot(int width, int height, int samples, int max_iter, int ma
     free(orbits)
 
     # Return the BuddhaBrot image
-    return np.log1p(buddhabrot_image)
+    return buddhabrot_image
 

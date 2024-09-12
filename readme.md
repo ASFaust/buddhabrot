@@ -60,22 +60,16 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
-For the `requirements.txt` file, you need to list all the Python packages that your project depends on. Based on the code excerpts you provided, your project uses the following packages:
+very good one:
 
-- numpy
-- tqdm
-- PIL (Pillow)
-- matplotlib
-- Cython
+730_s6676_mi3741_ms3_ip_-0.3073531600426744+-0.13730726616182123j_cturbo_plinear_iFalse
 
-Here's how you can create a `requirements.txt` file:
-
-```plaintext
-numpy==1.21.2
-tqdm==4.62.3
-Pillow==8.3.2
-matplotlib==3.4.3
-Cython==0.29.24
-```
-
-Please replace the version numbers with the ones that are compatible with your project.
+this means:
+-6676 orbits sampled
+-3741 bailout iterations
+-3 iterations to get closer to the boundary
+-inside point fixed at -0.3073531600426744+-0.13730726616182123j
+-colormap turbo
+-no alteration of the counts
+-2000x2000 resolution
+(it was the 730th image generated)
