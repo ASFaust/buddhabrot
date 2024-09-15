@@ -77,7 +77,7 @@ cdef inline double drand():
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar,
+def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar=None,
                         inside_point=None, outside_point=None):
     """
     Generate a BuddhaBrot image by sampling orbits near the boundary of the Mandelbrot set.
@@ -166,12 +166,14 @@ def generate_buddhabrot(int width, int height, int samples, int max_iter, int ma
         # Update progress bar in batches to minimize Python calls
         progress_counter += 1
         if progress_counter >= progress_batch:
-            pbar.update(progress_counter)
+            if pbar is not None:
+                pbar.update(progress_counter)
             progress_counter = 0
 
     # Update any remaining progress
     if progress_counter > 0:
-        pbar.update(progress_counter)
+        if pbar is not None:
+            pbar.update(progress_counter)
 
     # Free the allocated memory
     free(orbits)

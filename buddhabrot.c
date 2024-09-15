@@ -20242,7 +20242,7 @@ static CYTHON_INLINE double __pyx_f_10buddhabrot_drand(void) {
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
- * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar,
+ * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar=None,
  */
 
 /* Python wrapper */
@@ -20292,9 +20292,18 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject **__pyx_pyargnames[] = {&__pyx_n_s_width,&__pyx_n_s_height,&__pyx_n_s_samples,&__pyx_n_s_max_iter,&__pyx_n_s_max_steps,&__pyx_n_s_pbar,&__pyx_n_s_inside_point,&__pyx_n_s_outside_point,0};
 
+    /* "buddhabrot.pyx":80
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar=None,             # <<<<<<<<<<<<<<
+ *                         inside_point=None, outside_point=None):
+ *     """
+ */
+    values[5] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)Py_None));
+
     /* "buddhabrot.pyx":81
  * @cython.wraparound(False)
- * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar,
+ * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar=None,
  *                         inside_point=None, outside_point=None):             # <<<<<<<<<<<<<<
  *     """
  *     Generate a BuddhaBrot image by sampling orbits near the boundary of the Mandelbrot set.
@@ -20340,7 +20349,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         }
         else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 6, 8, 1); __PYX_ERR(0, 78, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 5, 8, 1); __PYX_ERR(0, 78, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -20350,7 +20359,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         }
         else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 6, 8, 2); __PYX_ERR(0, 78, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 5, 8, 2); __PYX_ERR(0, 78, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -20360,7 +20369,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         }
         else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 6, 8, 3); __PYX_ERR(0, 78, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 5, 8, 3); __PYX_ERR(0, 78, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
@@ -20370,17 +20379,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         }
         else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 6, 8, 4); __PYX_ERR(0, 78, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 5, 8, 4); __PYX_ERR(0, 78, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
-        if (likely((values[5] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_pbar)) != 0)) {
-          (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
-          kw_args--;
-        }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
-        else {
-          __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 6, 8, 5); __PYX_ERR(0, 78, __pyx_L3_error)
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_pbar);
+          if (value) { values[5] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
@@ -20408,7 +20414,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         case  7: values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
         CYTHON_FALLTHROUGH;
         case  6: values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
-        values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  5: values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
         values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
         values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
         values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
@@ -20428,7 +20435,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 6, 8, __pyx_nargs); __PYX_ERR(0, 78, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("generate_buddhabrot", 0, 5, 8, __pyx_nargs); __PYX_ERR(0, 78, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -20449,7 +20456,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
- * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar,
+ * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar=None,
  */
 
   /* function exit code */
@@ -21075,7 +21082,7 @@ static PyObject *__pyx_pf_10buddhabrot_generate_buddhabrot(CYTHON_UNUSED PyObjec
  *         # Update progress bar in batches to minimize Python calls
  *         progress_counter += 1             # <<<<<<<<<<<<<<
  *         if progress_counter >= progress_batch:
- *             pbar.update(progress_counter)
+ *             if pbar is not None:
  */
     __pyx_v_progress_counter = (__pyx_v_progress_counter + 1);
 
@@ -21083,8 +21090,8 @@ static PyObject *__pyx_pf_10buddhabrot_generate_buddhabrot(CYTHON_UNUSED PyObjec
  *         # Update progress bar in batches to minimize Python calls
  *         progress_counter += 1
  *         if progress_counter >= progress_batch:             # <<<<<<<<<<<<<<
- *             pbar.update(progress_counter)
- *             progress_counter = 0
+ *             if pbar is not None:
+ *                 pbar.update(progress_counter)
  */
     __pyx_t_8 = (__pyx_v_progress_counter >= __pyx_v_progress_batch);
     if (__pyx_t_8) {
@@ -21092,13 +21099,107 @@ static PyObject *__pyx_pf_10buddhabrot_generate_buddhabrot(CYTHON_UNUSED PyObjec
       /* "buddhabrot.pyx":169
  *         progress_counter += 1
  *         if progress_counter >= progress_batch:
- *             pbar.update(progress_counter)             # <<<<<<<<<<<<<<
+ *             if pbar is not None:             # <<<<<<<<<<<<<<
+ *                 pbar.update(progress_counter)
+ *             progress_counter = 0
+ */
+      __pyx_t_8 = (__pyx_v_pbar != Py_None);
+      if (__pyx_t_8) {
+
+        /* "buddhabrot.pyx":170
+ *         if progress_counter >= progress_batch:
+ *             if pbar is not None:
+ *                 pbar.update(progress_counter)             # <<<<<<<<<<<<<<
  *             progress_counter = 0
  * 
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_pbar, __pyx_n_s_update); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 169, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_pbar, __pyx_n_s_update); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_progress_counter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 170, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_2 = NULL;
+        __pyx_t_20 = 0;
+        #if CYTHON_UNPACK_METHODS
+        if (likely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_2)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_2);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+            __pyx_t_20 = 1;
+          }
+        }
+        #endif
+        {
+          PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_3};
+          __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_20, 1+__pyx_t_20);
+          __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+        /* "buddhabrot.pyx":169
+ *         progress_counter += 1
+ *         if progress_counter >= progress_batch:
+ *             if pbar is not None:             # <<<<<<<<<<<<<<
+ *                 pbar.update(progress_counter)
+ *             progress_counter = 0
+ */
+      }
+
+      /* "buddhabrot.pyx":171
+ *             if pbar is not None:
+ *                 pbar.update(progress_counter)
+ *             progress_counter = 0             # <<<<<<<<<<<<<<
+ * 
+ *     # Update any remaining progress
+ */
+      __pyx_v_progress_counter = 0;
+
+      /* "buddhabrot.pyx":168
+ *         # Update progress bar in batches to minimize Python calls
+ *         progress_counter += 1
+ *         if progress_counter >= progress_batch:             # <<<<<<<<<<<<<<
+ *             if pbar is not None:
+ *                 pbar.update(progress_counter)
+ */
+    }
+  }
+
+  /* "buddhabrot.pyx":174
+ * 
+ *     # Update any remaining progress
+ *     if progress_counter > 0:             # <<<<<<<<<<<<<<
+ *         if pbar is not None:
+ *             pbar.update(progress_counter)
+ */
+  __pyx_t_8 = (__pyx_v_progress_counter > 0);
+  if (__pyx_t_8) {
+
+    /* "buddhabrot.pyx":175
+ *     # Update any remaining progress
+ *     if progress_counter > 0:
+ *         if pbar is not None:             # <<<<<<<<<<<<<<
+ *             pbar.update(progress_counter)
+ * 
+ */
+    __pyx_t_8 = (__pyx_v_pbar != Py_None);
+    if (__pyx_t_8) {
+
+      /* "buddhabrot.pyx":176
+ *     if progress_counter > 0:
+ *         if pbar is not None:
+ *             pbar.update(progress_counter)             # <<<<<<<<<<<<<<
+ * 
+ *     # Free the allocated memory
+ */
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_pbar, __pyx_n_s_update); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_progress_counter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 169, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_progress_counter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_2 = NULL;
       __pyx_t_20 = 0;
@@ -21119,87 +21220,31 @@ static PyObject *__pyx_pf_10buddhabrot_generate_buddhabrot(CYTHON_UNUSED PyObjec
         __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_20, 1+__pyx_t_20);
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 176, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "buddhabrot.pyx":170
- *         if progress_counter >= progress_batch:
- *             pbar.update(progress_counter)
- *             progress_counter = 0             # <<<<<<<<<<<<<<
- * 
- *     # Update any remaining progress
- */
-      __pyx_v_progress_counter = 0;
-
-      /* "buddhabrot.pyx":168
- *         # Update progress bar in batches to minimize Python calls
- *         progress_counter += 1
- *         if progress_counter >= progress_batch:             # <<<<<<<<<<<<<<
- *             pbar.update(progress_counter)
- *             progress_counter = 0
- */
-    }
-  }
-
-  /* "buddhabrot.pyx":173
- * 
- *     # Update any remaining progress
- *     if progress_counter > 0:             # <<<<<<<<<<<<<<
- *         pbar.update(progress_counter)
- * 
- */
-  __pyx_t_8 = (__pyx_v_progress_counter > 0);
-  if (__pyx_t_8) {
-
-    /* "buddhabrot.pyx":174
+      /* "buddhabrot.pyx":175
  *     # Update any remaining progress
  *     if progress_counter > 0:
- *         pbar.update(progress_counter)             # <<<<<<<<<<<<<<
+ *         if pbar is not None:             # <<<<<<<<<<<<<<
+ *             pbar.update(progress_counter)
  * 
- *     # Free the allocated memory
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_pbar, __pyx_n_s_update); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_progress_counter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = NULL;
-    __pyx_t_20 = 0;
-    #if CYTHON_UNPACK_METHODS
-    if (likely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-      if (likely(__pyx_t_2)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-        __Pyx_INCREF(__pyx_t_2);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_4, function);
-        __pyx_t_20 = 1;
-      }
     }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_3};
-      __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_20, 1+__pyx_t_20);
-      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    }
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "buddhabrot.pyx":173
+    /* "buddhabrot.pyx":174
  * 
  *     # Update any remaining progress
  *     if progress_counter > 0:             # <<<<<<<<<<<<<<
- *         pbar.update(progress_counter)
- * 
+ *         if pbar is not None:
+ *             pbar.update(progress_counter)
  */
   }
 
-  /* "buddhabrot.pyx":177
+  /* "buddhabrot.pyx":179
  * 
  *     # Free the allocated memory
  *     free(orbits)             # <<<<<<<<<<<<<<
@@ -21208,7 +21253,7 @@ static PyObject *__pyx_pf_10buddhabrot_generate_buddhabrot(CYTHON_UNUSED PyObjec
  */
   free(__pyx_v_orbits);
 
-  /* "buddhabrot.pyx":183
+  /* "buddhabrot.pyx":185
  * 
  *     # Return the BuddhaBrot image as int32
  *     return buddhabrot_image             # <<<<<<<<<<<<<<
@@ -21223,7 +21268,7 @@ static PyObject *__pyx_pf_10buddhabrot_generate_buddhabrot(CYTHON_UNUSED PyObjec
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
- * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar,
+ * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar=None,
  */
 
   /* function exit code */
@@ -22589,13 +22634,13 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
- * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar,
+ * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar=None,
  */
   __pyx_tuple__23 = PyTuple_Pack(32, __pyx_n_s_width, __pyx_n_s_height, __pyx_n_s_samples, __pyx_n_s_max_iter, __pyx_n_s_max_steps, __pyx_n_s_pbar, __pyx_n_s_inside_point, __pyx_n_s_outside_point, __pyx_n_s_buddhabrot_image, __pyx_n_s_image_view, __pyx_n_s_count, __pyx_n_s_orbit_len, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_theta, __pyx_n_s_x_out, __pyx_n_s_y_out, __pyx_n_s_c_in_real, __pyx_n_s_c_in_imag, __pyx_n_s_c_out_real, __pyx_n_s_c_out_imag, __pyx_n_s_orbits, __pyx_n_s_offset, __pyx_n_s_scale_x, __pyx_n_s_scale_y, __pyx_n_s_two_pi, __pyx_n_s_progress_batch, __pyx_n_s_progress_counter, __pyx_n_s_real_offset, __pyx_n_s_imag_offset); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
   __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(8, 0, 0, 32, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_buddhabrot_pyx, __pyx_n_s_generate_buddhabrot, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 78, __pyx_L1_error)
-  __pyx_tuple__25 = PyTuple_Pack(2, Py_None, Py_None); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_tuple__25 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_GIVEREF(__pyx_tuple__25);
   __Pyx_RefNannyFinishContext();
@@ -23722,7 +23767,7 @@ if (!__Pyx_RefNanny) {
  * 
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * @cython.wraparound(False)
- * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar,
+ * def generate_buddhabrot(int width, int height, int samples, int max_iter, int max_steps, pbar=None,
  */
   __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_10buddhabrot_1generate_buddhabrot, 0, __pyx_n_s_generate_buddhabrot, NULL, __pyx_n_s_buddhabrot, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
