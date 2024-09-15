@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import tqdm  # Import tqdm for progress bar
-from bhuddabrot import generate_buddhabrot
+from buddhabrot import generate_buddhabrot
 
 width = 1000
 height = 1000

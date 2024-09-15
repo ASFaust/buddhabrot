@@ -1,9 +1,24 @@
 from setuptools import setup
 from Cython.Build import cythonize
-import numpy as np
+from setuptools.extension import Extension
+import os
+import numpy
+
+# Specify compilers
+os.environ["CC"] = "gcc"
+os.environ["CXX"] = "g++"
+
+ext_modules = [
+    Extension(
+        "buddhabrot",
+        ["buddhabrot.pyx"],
+        extra_compile_args=['-fopenmp'],
+        extra_link_args=['-fopenmp'],
+        include_dirs=[numpy.get_include()]  # Include NumPy headers
+    )
+]
 
 setup(
-    ext_modules=cythonize("bhuddabrot.pyx"),  # Compiles the Cython file
-    include_dirs=[np.get_include()]  # Ensures NumPy is available for compilation
+    name='Buddhabrot',
+    ext_modules=cythonize(ext_modules),
 )
-
