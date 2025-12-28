@@ -26,6 +26,7 @@ buddhabrot_exploration_images/
 
 # Inlcude title
 !title.png
+!images/buddhabrot.png
 
 # Ignore Python build files
 build/
